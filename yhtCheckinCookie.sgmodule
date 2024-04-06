@@ -1,0 +1,10 @@
+#!name=益禾堂签到获取cookie
+#!desc=益禾堂签到获取cookie
+
+[MITM]
+hostname =qmwebapi.qmai.cn,webapi.qmai.cn
+
+[Script]
+cron "0 10 * * *" script-path=https://gist.githubusercontent.com/Sliverkiss/df5dbbf01bc3acc3bccaf7880acd242b/raw/yht.js, timeout=300, tag=🥤益禾堂小程序签到
+http-request ^https:\/\/(webapi|qmwebapi)\.qmai\.cn\/web\/(catering|catering2-apiserver)\/crm\/points-info script-path=https://gist.githubusercontent.com/Sliverkiss/df5dbbf01bc3acc3bccaf7880acd242b/raw/yht.js, timeout=10, tag=益禾堂获取token
+
