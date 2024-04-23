@@ -1,0 +1,16 @@
+#!/bin/sh /etc/rc.common
+
+START=99  # 设置启动的优先级，数值越大，越晚启动
+
+start() {
+    echo "Starting nezha agent..."
+    # 如果你反代 gRPC
+    # /etc/nezha/nezha-agent --password 通信密钥 --server 通信网址:443 --tls > /dev/null 2> /dev/null &
+    # 如果你只是普通的使用端口 5555
+    /etc/nezha/nezha-agent --password 通信密钥 --server 通信网址:5555 > /dev/null 2> /dev/null &
+}
+
+stop() {
+    echo "Stopping nezha agent..."
+    killall nezha-agent
+}
